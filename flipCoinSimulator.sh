@@ -12,15 +12,17 @@ do
                 (( ++HeadCount ))
                 if [ $HeadCount -eq $limit ]
                 then
-			Headdiff=$(($HeadCount-$TailCount ))
-			 if [ $Headdiff -eq 0 ]
+                        continue
+                fi
+                if [ $HeadCount -gt $limit ]
+                then
+                         Headdiff=$(($HeadCount-$TailCount ))
+                        if [ $Headdiff -eq 2 ]
                         then
-                                echo "Tie between them"
-                                break
+                                echo " Head is winner by $Headdiff"
+                                        break
                         fi
 
-                        echo "Head win first by $Headdiff Times"
-                        break
                 fi
         fi
         if [ $Tail -eq $Winner ]
@@ -28,17 +30,21 @@ do
                 (( ++TailCount ))
                 if [ $TailCount -eq $limit  ]
                 then
-			TailDiff=$(( $TailCount-$HeadCount ))
-			 if [ $TailDiff -eq 0 ]
+                        continue
+                fi
+                if [ $TailCount -gt $limit ]
+                then
+                         TailDiff=$(( $TailCount-$HeadCount ))
+                        if [ $TailDiff -eq 2 ]
                         then
-                                echo "Tie Between them"
+                                echo "Tails is winner by $TailDiff"
                                         break
                         fi
 
-                        echo "Tail win first by $TailDiff Times"
-                        break
+
                 fi
         fi
 done
+
 
 
