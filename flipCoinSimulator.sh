@@ -44,6 +44,13 @@ do
 
                 fi
         fi
+	  if [ $HeadCount -ge $limit ] && [ $TailCount -ge $limit ] && [ $HeadCount -eq $TailCount ]
+        then
+                echo "Tie Between them"
+                echo "Head" $HeadCount
+                echo "Tail" $TailCount
+        fi
+
 done
 
 
